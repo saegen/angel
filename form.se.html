@@ -1,0 +1,159 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Verisec PEP</title>
+    <script src="scripts/jquery-1.10.2.min.js"></script>
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+    <link href="jquery-ui-1.11.4.custom/jquery-ui.css" rel="stylesheet" />
+    <script src="jquery-ui-1.11.4.custom/jquery-ui.js"></script>
+    <script src="scripts/bootstrap.min.js"></script>
+    <link href="css/verisec.css" rel="stylesheet" />
+    <script src="scripts/verisec.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+</head>
+<body class="verisec">
+    <header>
+        <div class="container">
+            <img src="img/verisec-logo.svg" alt="logo" style="" />
+        </div>
+    </header>
+    <div class="container">
+        <div class="nav"></div>
+    </div>
+    <section id="facta">
+        <div class="container">
+            <div class="row-fluid">
+                <div class="col-md-12">
+                    <h3>FACTA</h3>
+                    <span><b>FACTA</b> (Foreign Account Tax Act) är en amerikansk lagstiftning som innebär att finansiella företag i Sverige ska lämna uppgifter till Skatteverket om kontohavare som är amerikansk medborgare och/eller på annat sätt deklarartions-/skatteskyldig i USA. Skatteverket rapporterar sedan vidare till den amerikanska skattemyndigheten</span>
+                    <br />
+                 </div>
+            </div>
+            <div class="row-fluid">      
+                <div class=" col-md-12 verisecborder">
+                    <div class="col-md-6">
+                        ÄR DU BOSATT I USA, HAR AMERIKANSKT MEDBORGARSKAP ELLER ÄR PÅ ANNAT SÄTT DEKLARARTIONS-/SKATTESKYLDIG I USA?
+                    </div>
+                    <div class="col-md-1">
+                        <fieldset>
+                            <input name="facta" type="radio" class="facta" value="yes" />JA
+                            <br />
+                            <input name="facta" class="facta" type="radio" value="no" checked />NEJ
+                        </fieldset>
+                    </div>
+                    <div id="tinDiv" class="col-md-5 hide">
+                        VÄNLIGEN ANGE DITT SKATTEREGISTRERINGSNUMMER (S.K. TIN-NUMMER)
+                        <input id="tinNummer" pattern="/[0-9]{6}\-[0-9]{4}/" placeholder="Ange 10 siffror" maxlength="10" type="text" />
+                        <input id="isFacta" type="hidden" value="no" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="pep" class="container">
+        <div class="container">
+            <div class="row-fluid">
+                <div class="col-md-12">
+                    <h3>ARE YOU A POLITICALLY EXPOSED PERSON(PEP)?</h3>
+                </div>
+                <div class="row-fluid">
+                    <div class="col-md-5">
+                        <input name="isPEP" type="radio" class="isPep" value="yes" />YES &nbsp;&nbsp;&nbsp;&nbsp;<input name="isPEP" class="isPep" type="radio" value="no" checked />NO
+                        <br />
+                        <input name="isPEP" type="radio" class="isPep" value="nobut" />No, but I have held a PEP position in the last 18 months.
+                        <input id="isPEP" type="hidden" value="no" />
+                    </div>
+                    <div id="endDate" class="col-md-7 hide">
+                        Date when such duties ended:&nbsp;<input id="PEPdate" type="text" class="datepicker">
+                    </div>
+                    </div>
+                </div>
+         </div>
+            <div id="PEP2" class="row-fluid hide">
+                <div class="col-md-12">
+                    <h3>WHICH OF THE FOLLOWING APPLIES FOR THE FUNTION YOU HOLD/HELD:</h3>
+                </div>
+                <div class="col-md-12 verisecborder">
+                    <ul>
+                            <li><input type="radio" name="PEPfunc" class="pep" title="PEPfunction" value="Goverment" />Head of state or goverment, minister and deputy or assistant minister</li>
+                            <li><input type="radio" name="PEPfunc" class="pep" title="PEPfunction" value="Parliment" />Memeber of Parliment</li>
+                            <li><input type="radio" name="PEPfunc" class="pep" title="PEPfunction" value="Judge" />Judge of the Supreme Court or equivalent</li>
+                            <li><input type="radio" name="PEPfunc" class="pep" title="PEPfunction" value="Civil"/>Senior civil servant in state owned audit authority</li>
+                            <li><input type="radio" name="PEPfunc" class="pep" title="PEPfunction" value="Bank" />Member of a central bank governing council</li>
+                            <li><input type="radio" name="PEPfunc" class="pep" title="PEPfunction" value="Board"/>Person who is a member of a state owned administrative, management of executive board</li>
+                            <li><input type="radio" name="PEPfunc" class="pep" title="PEPfunction" value="Ambassador" />Ambassador</li>
+                            <li><input type="radio" name="PEPfunc" class="pep" title="PEPfunction" value="Officer" />High-ranking officer in the armed forces</li>
+                            <li><input type="radio" name="PEPfunc" class="pep" title="PEPfunction" value="Public" />Other public function</li>
+                            <li><input type="radio" name="PEPfunc" class="pep" title="PEPfunction" value="Organisation" />Executive function in an international organisation [Secretary General and director of e.g. UN, NATO or WTO]</li>
+                        </ul>
+                    <div class="col-md-12">
+                        Your title:&nbsp;<input id="PEPTitle" type="text" />&nbsp;&nbsp;&nbsp;Country/Organisation:&nbsp;<input id="PEPOrg" type="text" />
+                    </div>
+                </div>
+            </div>
+            <div id="PEP3" class="row-fluid">
+                <div class="col-md-12">
+                    <h3>ARE YOU A FAMILY MEMBER OR A CLOSE ASSOCIATE OF A POLITICALLY EXPOSED PERSON (PEP)?</h3>
+                    <div>
+                        <input type="radio" name="PEPfam" id="yes" value="yes" title="YES" />YES &nbsp;&nbsp;&nbsp;&nbsp;<input id="no" type="radio" name="PEPfam" value="no" title="NO" checked />NO
+                    </div>
+                </div>
+                <div class="row-fluid">
+                    <div id="PEP3_2" class="col-md-12 verisecborder hide">
+                        <div class="col-md-6">
+                            <h4>STATE YOUR RELATIONSHIP AS ON OF THE FOLLOWING:</h4>
+                            <ul>
+                                <li><label><input type="radio" name="PEPrel" class="pep" title="Partner" />Husband/wife, partner, registered partner</label></li>
+                                <li><label><input type="radio" name="PEPrel" class="pep" title="Parent" />Parent</label></li>
+                                <li><label><input type="radio" name="PEPrel" class="pep" title="Child" />Child</label></li>
+                                <li><label><input type="radio" name="PEPrel" class="pep" title="Inlaw" />Child's husband/wife, partner, registered partner</label></li>
+                                <li>
+                                    <label>
+                                        <input id="PEPass" type="radio" name="PEPrel" class="pep pepClick" title="Associate" />
+                                        Close associate
+                                        <ul id="PEPassType" class="PEPassType hide">
+                                            <li><b>Please choose one of the following:</b></li>
+                                            <li><label><input type="radio" name="PEPassType" class="Asstype" title="AssociationType" value="BusinessPartner" />Person who jointly with a PEP owns or otherwise has a controlling interest in a company</label></li>
+                                            <li><label><input type="radio" name="PEPassType" class="Asstype" title="AssociationType" value="Private" />Person who otherwisee has or has had a close connection with a PEP - this does not have to be a business connection</label></li>
+                                            <li><label><input type="radio" name="PEPassType" class="Asstype" title="AssociationType" value="Employee" />Person who soley owns or exercises influence over a company that was formed where a PEP is the actual beneficiary</label></li>
+                                        </ul>
+                                    </label>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <h4>STATE WHICH OF THE FOLLOWING APPLIES FOR THE FUNCTION PERSON HOLD/HELD:</h4>
+                            <ul class="topLevelList">
+                                <li><label><input type="radio" name="PEPassFunc" class="pep" title="Board" />Person who is a member of a state owned administrative, management of executive board</label></li>
+                                <li><label><input type="radio" name="PEPassFunc" class="pep" title="Ambassador" />Ambassador</label></li>
+                                <li><label><input type="radio" name="PEPassFunc" class="pep" title="Officer" />High-ranking officer in the armed forces</label></li>
+                                <li><label><input type="radio" name="PEPassFunc" class="pep" title="Public" />Other public function</label></li>
+                                <li><label><input type="radio" name="PEPassFunc" class="pep" title="Organisation" />Executive function in an international organisation [Secretary General and director of e.g. UN, NATO or WTO]</label></li>
+                            </ul>
+                        </div>
+                        <div class="col-md-12">
+                            <!--<div class="container">-->
+                            <div class="col-md-4">
+                                <b>Name of PEP:</b><input id="PEPName" type="text" />
+                            </div>
+                            <div class="col-md-4">
+                                <b>Title of PEP:</b><input id="PEPTitle" type="text" />
+                            </div>
+                            <div class="col-md-4">
+                                <b>Country/Organisation:</b><input id="PEPOrg" type="text" />
+                            </div>
+                            <!--</div>-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </section>
+    <div class="container">
+        <br />
+        <button id="signBtn" >Signera</button>
+    </div>
+    
+</body>
+</html>
