@@ -5,13 +5,13 @@
 
           this.nickName = "";
           this.myAccountType = 'private';   // Default;
-          this.myPurposes;// = KYCOptions.purposes;
-          this.myOrigin;// = KYCOptions.origin;
-          this.myDeposit; //Default
-          this.myfrequencyDeposit;
-          this.myhowDeposit;// = KYCOptions.howDeposit;
-          this.myfrequencyWithdraw;
-          this.otherBank = "";
+          this.myPurposes;  //checkboxes
+          this.myOrigin;    //checkboxes
+          this.myDeposit;           //radios
+          this.myfrequencyDeposit; //radios
+          this.myhowDeposit;        //radios
+          this.myfrequencyWithdraw; //radios
+          this.otherBank = "";      
           
           this.MyAccounts = [];
           var Accounts = [];
@@ -43,11 +43,24 @@
           };
 
           this.addAccount = function addAccount() {
-              this.MyAccounts.push(this);
-              //var temp = this;
-              //console.log(JSON.parse(JSON.stringify(temp)));
-             // console.log(this);
-              // alert(this.myfrequencyDeposit[0].value);
+              var temp = angular.copy(this);
+              console.log(temp);
+              console.log(temp.myPurposes);
+              //this.MyAccounts.push(angular.copy(this));
+              this.MyAccounts.push(temp);
+              //console.table(MyAccounts[0].myPurposes);
+
+          };
+          this.delete = function (index) {
+              
+              console.log("index =" + index);
+              console.log(this.MyAccounts);
+              console.log("före")
+              console.log("length" + this.MyAccounts.length);
+              this.MyAccounts.splice(index, 1);
+              console.log("efter")
+              console.log("length" + this.MyAccounts.length);
+              console.log(this.MyAccounts);
           };
       }]);
 })(window.angular);
