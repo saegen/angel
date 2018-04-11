@@ -2,7 +2,7 @@
 <html lang="sv-se" xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
-    
+
     <title>Verisec Account</title>
     <script src="scripts/jquery-1.10.2.min.js"></script>
     <link href="css/bootstrap.min.css" rel="stylesheet" />
@@ -18,7 +18,7 @@
 <body class="verisec">
     <header>
         <div class="container">
-            <img src="img/verisec-logo.svg" alt="logo" style="" />
+            <img src="img/verisec-logo.svg" alt="logo" style="margin:10px;" />
         </div>
     </header>
     <div class="container">
@@ -116,22 +116,23 @@
                 <button ng-click="account.addAccount()">Lägg till konto</button>
                 <br />
                 Lista:
-                <div ng-repeat="ac in account.MyAccounts track by $index">
+                <!-- <div ng-repeat="ac in MyAccounts track by $index"> -->
+                        <div ng-repeat="ac in MyAccounts">
                     <table class="verisecborder">
                         <thead>
                             <tr>
                                 <td>Namn: {{ ac.nickName }}, Typ: {{ ac.myAccountType }}</td>
 
-                                <td class="ui-icon ui-icon-trash" ng-click="ac.delete($index)">Ta bort</td>
+                                <td class="ui-icon ui-icon-trash" ng-click="ac.delete(ac)">Ta bort</td>
                             </tr>
                         </thead>
                        <tbody>
                            <tr>
-                               <td>SYFTE MED KONTOT:<span ng-repeat="purpose in ac.myPurposes"> {{ purpose.value }}</span></td>
+                               <td>SYFTE MED KONTOT:<span ng-repeat="purpose in ac.myPurposes"> {{ purpose.label }}</span></td>
                                <td></td>
                            </tr>
                            <tr>
-                               <td>PENGARNA KOMMER FRÅN:<span ng-repeat="origin in ac.myOrigin"> {{ origin.value }}</span></td>
+                               <td>PENGARNA KOMMER FRÅN:<span> {{ ac.myOrigin.label }}</span></td>
                                <td></td>
                            </tr>
                            <tr>
@@ -150,14 +151,14 @@
                                <td>OMFATTNING UTTAG (PERIODICITET):<span> {{ ac.myfrequencyWithdraw }}</span></td>
                                <td></td>
                            </tr>
-                       </tbody> 
+                       </tbody>
                     </table>
                 </div>
             </div>
         </div>
     </div>
     <div class="container">
-        
+
         <div class="row-fluid">
             <div class="col-md-12"></div>
         </div>

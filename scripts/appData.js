@@ -6,29 +6,29 @@ angular.module('appdata', [])
                            { value: 'Investement', label: 'INVESTERING' , isSelected : "false" },
                            { value: 'Commodity', label: 'SPARANDE TILL KAPITALVARA' , isSelected : "false" },
                            { value: 'House', label: 'SPARANDE TILL BOSTAD/FRITIDSBOSTAD' , isSelected : "false" }];
-          //VARIFRÅN KOMMER PENGARNA?
-        var origin = [{value:'Salary',label:'LÖN/PENSION/STUDIEMEDEL/BONUSUTBETALNING', isSelected : "false" }, 
-                        { value: 'Benefit', label: 'BARNBIDRAG/ANNAN FÖRMÅN' , isSelected : "false" },
-                        { value: 'Sales', label: 'FÖRSÄLJNING AV FASTIGHET/BOSTADSRÄTT' , isSelected : "false" },
+          //VARIFRÃ„N KOMMER PENGARNA?
+        var origin = [{value:'Salary',label:'LÃ–N/PENSION/STUDIEMEDEL/BONUSUTBETALNING', isSelected : "false" },
+                        { value: 'Benefit', label: 'BARNBIDRAG/ANNAN FÃ–RMÃ…N' , isSelected : "false" },
+                        { value: 'Sales', label: 'FÃ–RSÃ„LJNING AV FASTIGHET/BOSTADSRÃ„TT' , isSelected : "false" },
                         { value: 'Savings', label: 'TIDIGARE SPARANDE/INVESTERING' , isSelected : "false" }];
-          //OMFATTNING INSÄTTNING (BELOPP/GÅNG)
-        var deposit = [{ value: '9999', label: 'MINDRE ÄN 10 000 KR' , isSelected : "false" },
+          //OMFATTNING INSÃ„TTNING (BELOPP/GÃ…NG)
+        var deposit = [{ value: '9999', label: 'MINDRE Ã„N 10 000 KR' , isSelected : "false" },
                         { value: '24999', label: '10 001-25 000 KR' , isSelected : "false" },
                         { value: '49999', label: '25 001-55 000 KR' , isSelected : "false" },
-                        { value: '50001', label: 'MER ÄN 50 000 KR' , isSelected : "false" }];
-          //OMFATTNING INSÄTTNING (PERIODICITET)
-        var frequencyDeposit = [{ value: 'once', label: 'ENGÅNGSBELOPP' , isSelected : "false" },
-                                    { value: '1', label: 'MINDRE ÄN 1 GÅNG/MÅNAD' , isSelected : "false" },
-                                    { value: '5', label: '1-5 GÅNNGER/MÅNAD' , isSelected : "false" },
-                                    { value: '6', label: 'MER ÄN 5 GÅNGER/MÅNAD' , isSelected : "false" }];
-          //HUR KOMMER PENGARNA ATT SÄTTAS IN?
-          var howDeposit = [{ value: 'ownAccount', label: 'FRÅN EGET KONTO' , isSelected : "false" },
+                        { value: '50001', label: 'MER Ã„N 50 000 KR' , isSelected : "false" }];
+          //OMFATTNING INSÃ„TTNING (PERIODICITET)
+        var frequencyDeposit = [{ value: 'once', label: 'ENGÃ„NGSBELOPP' , isSelected : "false" },
+                                    { value: '1', label: 'MINDRE Ã„N 1 GÃ„NG/MÃ„NAD' , isSelected : "false" },
+                                    { value: '5', label: '1-5 GÃ„NNGER/MÃ„NAD' , isSelected : "false" },
+                                    { value: '6', label: 'MER Ã„N 5 GÃ„NGER/MÃ„NAD' , isSelected : "false" }];
+          //HUR KOMMER PENGARNA ATT SÃ„TTAS IN?
+          var howDeposit = [{ value: 'ownAccount', label: 'FRÃ„N EGET KONTO' , isSelected : "false" },
                             { value: 'cash', label: 'KONTANTER' , isSelected : "true" },
-                            { value: 'anotherBank', label: 'FRÅN ANNAN BANK' , isSelected : "false" }];
+                            { value: 'anotherBank', label: 'FRÃ„N ANNAN BANK' , isSelected : "false" }];
           //OMFATTNING UTTAG (PERIODICITET)
-          var frequencyWithdraw = [{ value: '1', label: 'MINDRE ÄN 1 GÅNG/MÅNAD', isSelected: "false" },
-                                     { value: '5', label: '1-5 GÅNNGER/MÅNAD', isSelected: "false" },
-                                     { value: '6', label: 'MER ÄN 5 GÅNGER/MÅNAD', isSelected: "false" }];
+          var frequencyWithdraw = [{ value: '1', label: 'MINDRE Ã„N 1 GÃ„NG/MÃ„NAD', isSelected: "false" },
+                                     { value: '5', label: '1-5 GÃ„NNGER/MÃ„NAD', isSelected: "false" },
+                                     { value: '6', label: 'MER Ã„N 5 GÃ„NGER/MÃ„NAD', isSelected: "false" }];
 
         return {
             purposes: purposes,

@@ -1,9 +1,9 @@
 (function (angular) {
     'use strict';
     angular.module('account1', ['appdata'])
-      .controller('accountController', ['KYCOptions','filterFilter', function (KYCOptions,filterFilter) {
+      .controller('accountController', ['$scope','KYCOptions','filterFilter', function ($scope,KYCOptions,filterFilter) {
 
-          this.nickName = "";
+          $scope.nickName = "";
           this.myAccountType = 'private';   // Default;
           this.myPurposes;  //checkboxes
           this.myOrigin;    //checkboxes
@@ -11,9 +11,9 @@
           this.myfrequencyDeposit; //radios
           this.myhowDeposit;        //radios
           this.myfrequencyWithdraw; //radios
-          this.otherBank = "";      
-          
-          this.MyAccounts = [];
+          this.otherBank = "";
+
+          $scope.MyAccounts = [];
           var Accounts = [];
 
           this.tooglePurpose = function tooglePurpose(index) {
@@ -42,25 +42,21 @@
               this.myhowDeposit = filterFilter(KYCOptions.howDeposit, { isSelected: 'true' });
           };
 
-          this.addAccount = function addAccount() {
-              var temp = angular.copy(this);
-              console.log(temp);
-              console.log(temp.myPurposes);
-              //this.MyAccounts.push(angular.copy(this));
-              this.MyAccounts.push(temp);
-              //console.table(MyAccounts[0].myPurposes);
+        this.addAccount = function addAccount() {
+                var temp = angular.copy(this);
+                $scope.MyAccounts.push(temp);
 
-          };
-          this.delete = function (index) {
-              
-              console.log("index =" + index);
-              console.log(this.MyAccounts);
-              console.log("före")
-              console.log("length" + this.MyAccounts.length);
-              this.MyAccounts.splice(index, 1);
-              console.log("efter")
-              console.log("length" + this.MyAccounts.length);
-              console.log(this.MyAccounts);
+                $scope.MyAccounts.forEach(element => {
+                    console.debug("nick: " + element.nickName);
+                });
+            };
+
+        this.delete = function (index) {
+            $scope.MyAccounts.forEach(element => {
+                console.log("nick: " + element.nickName);
+            });
+            $scope.MyAccounts.splice(index, 1);
+            console.debug($scope.MyAccounts);
           };
       }]);
 })(window.angular);
@@ -75,29 +71,29 @@ angular.module('appdata', [])
                        { value: 'Investement', label: 'INVESTERING', isSelected: 'false' },
                        { value: 'Commodity', label: 'SPARANDE TILL KAPITALVARA', isSelected: 'false' },
                        { value: 'House', label: 'SPARANDE TILL BOSTAD/FRITIDSBOSTAD', isSelected: 'false' }];
-    //VARIFRÅN KOMMER PENGARNA?
-    var origin = [{ value: 'Salary', label: 'LÖN/PENSION/STUDIEMEDEL/BONUSUTBETALNING', isSelected: 'false' },
-                    { value: 'Benefit', label: 'BARNBIDRAG/ANNAN FÖRMÅN', isSelected: 'false' },
-                    { value: 'Sales', label: 'FÖRSÄLJNING AV FASTIGHET/BOSTADSRÄTT', isSelected: 'false' },
+    //VARIFRï¿½N KOMMER PENGARNA?
+    var origin = [{ value: 'Salary', label: 'Lï¿½N/PENSION/STUDIEMEDEL/BONUSUTBETALNING', isSelected: 'false' },
+                    { value: 'Benefit', label: 'BARNBIDRAG/ANNAN Fï¿½RMï¿½N', isSelected: 'false' },
+                    { value: 'Sales', label: 'Fï¿½RSï¿½LJNING AV FASTIGHET/BOSTADSRï¿½TT', isSelected: 'false' },
                     { value: 'Savings', label: 'TIDIGARE SPARANDE/INVESTERING', isSelected: 'false' }];
-    //OMFATTNING INSÄTTNING (BELOPP/GÅNG)
-    var deposit = [{ value: '9999', label: 'MINDRE ÄN 10 000 KR', isSelected: 'false' },
+    //OMFATTNING INSï¿½TTNING (BELOPP/Gï¿½NG)
+    var deposit = [{ value: '9999', label: 'MINDRE ï¿½N 10 000 KR', isSelected: 'false' },
                     { value: '24999', label: '10 001-25 000 KR', isSelected: 'false' },
                     { value: '49999', label: '25 001-55 000 KR', isSelected: 'false' },
-                    { value: '50001', label: 'MER ÄN 50 000 KR', isSelected: 'false' }];
-    //OMFATTNING INSÄTTNING (PERIODICITET)
-    var frequencyDeposit = [{ value: 'once', label: 'ENGÅNGSBELOPP', isSelected: 'false' },
-                                { value: '1', label: 'MINDRE ÄN 1 GÅNG/MÅNAD', isSelected: 'false' },
-                                { value: '5', label: '1-5 GÅNNGER/MÅNAD', isSelected: 'false' },
-                                { value: '6', label: 'MER ÄN 5 GÅNGER/MÅNAD', isSelected: 'false' }];
-    //HUR KOMMER PENGARNA ATT SÄTTAS IN?
-    var howDeposit = [{ value: 'ownAccount', label: 'FRÅN EGET KONTO', isSelected: 'false' },
+                    { value: '50001', label: 'MER ï¿½N 50 000 KR', isSelected: 'false' }];
+    //OMFATTNING INSï¿½TTNING (PERIODICITET)
+    var frequencyDeposit = [{ value: 'once', label: 'ENGï¿½NGSBELOPP', isSelected: 'false' },
+                                { value: '1', label: 'MINDRE ï¿½N 1 Gï¿½NG/Mï¿½NAD', isSelected: 'false' },
+                                { value: '5', label: '1-5 Gï¿½NNGER/Mï¿½NAD', isSelected: 'false' },
+                                { value: '6', label: 'MER ï¿½N 5 Gï¿½NGER/Mï¿½NAD', isSelected: 'false' }];
+    //HUR KOMMER PENGARNA ATT Sï¿½TTAS IN?
+    var howDeposit = [{ value: 'ownAccount', label: 'FRï¿½N EGET KONTO', isSelected: 'false' },
                       { value: 'cash', label: 'KONTANTER', isSelected: 'false' },
-                      { value: 'anotherBank', label: 'FRÅN ANNAN BANK', isSelected: 'false' }];
+                      { value: 'anotherBank', label: 'FRï¿½N ANNAN BANK', isSelected: 'false' }];
     //OMFATTNING UTTAG (PERIODICITET)
-    var frequencyWithdraw = [{ value: '1', label: 'MINDRE ÄN 1 GÅNG/MÅNAD', isSelected: 'false' },
-                               { value: '5', label: '1-5 GÅNNGER/MÅNAD', isSelected: 'false' },
-                               { value: '6', label: 'MER ÄN 5 GÅNGER/MÅNAD', isSelected: 'false' }];
+    var frequencyWithdraw = [{ value: '1', label: 'MINDRE ï¿½N 1 Gï¿½NG/Mï¿½NAD', isSelected: 'false' },
+                               { value: '5', label: '1-5 Gï¿½NNGER/Mï¿½NAD', isSelected: 'false' },
+                               { value: '6', label: 'MER ï¿½N 5 Gï¿½NGER/Mï¿½NAD', isSelected: 'false' }];
 
     return {
         purposes: purposes,
